@@ -16,11 +16,29 @@ section .text
 calculate_balance:
   push rbp
   mov rbp, rsp
-  
+
 ; Do not modify anything above this line unless you know what you are doing
 ; ==========================
 ; Your code goes here
-  mov eax, 0 ; This can be deleted, it just keeps function from causing a runtime error until completed
+  mov eax, edi  ; account number - A
+  mov ebx, esi  ; pin - P
+
+  ; ****** Calculating B' = ((A + P) * P) & (P ^ A) ******
+  ; LHS: ((A + P) * P)
+  add eax, ebx
+  imul eax, ebx
+  ; RHS: (P ^ A)
+  mov edx, edi
+  xor edx, ebx
+  ; LHS AND RHS
+  and eax, edx
+  ; ****** Calculating B = (B' mod 50000) ******
+  mov ebx, 50000
+  xor edx, edx
+  div ebx
+  ; ****** Moving the Result into Register eax the Adding 50000 ******
+  mov eax, edx
+  add eax, 50000
 ; ==========================
 ; Do not modify anything below this line unless you know what you are doing
   leave
