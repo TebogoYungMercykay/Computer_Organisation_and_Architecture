@@ -26,15 +26,15 @@ obscure_pin:
   movdqu [rsi], xmm1
   ; ***** convert back to ASCII and store in reverse order *****
   ; Reversing the First and the Last Digit
-  mov al, byte [rsi+1]
-  mov ah, byte [rsi+2]
-  mov [rsi+1], ah
-  mov [rsi+2], al
+  mov al, byte [rsi + 1]
+  mov ah, byte [rsi + 2]
+  mov [rsi + 1], ah
+  mov [rsi + 2], al
   ; Reversing the Middle Two digits
   mov al, byte [rsi]
-  mov ah, byte [rsi+3]
+  mov ah, byte [rsi + 3]
   mov [rsi], ah
-  mov [rsi+3], al
+  mov [rsi + 3], al
 ; ==========================
 ; Do not modify anything below this line unless you know what you are doing
 
