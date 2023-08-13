@@ -4,6 +4,7 @@ global greeting
 section .data
 ; ==========================
 ; Your data goes here
+  welcome_msg db "Welcome to the Bank of <<Redacted>>", 10, 0
 ; ==========================
 
 section .text
@@ -15,6 +16,11 @@ greeting:
 ; Do not modify anything above this line unless you know what you are doing
 ; ==========================
 ; Your code goes here
+  mov rax, 1
+  mov rdi, 1
+  mov rsi, welcome_msg
+  mov rdx, 40
+  syscall
 ; ==========================
 ; Do not modify anything below this line unless you know what you are doing
   leave
