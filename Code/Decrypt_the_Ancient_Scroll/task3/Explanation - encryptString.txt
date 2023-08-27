@@ -1,0 +1,71 @@
+## EXPLANATION:
+- The encryptString method is implemented inside an assembly file named encryptString.asm, it takes 3 parameters (char** matrix,char* string1,char* string2).
+- We will call a function called encryptChar, it takes 3 parameters (char** matrix,char char1,char char2) and returns a char back, This function is implemented in the encryptChar.asm file.
+- So the encryptString function calls encryptChar passing two characters, 1 from string1 and the other from string2, It skips all the spaces in string2, but it wraps around string1 for as long as the string2 has some characters left.
+- Characters returned by encryptChar are appended to each other and returned as a char* or a string.
+
+## Here is an Example:
+- Params:
+    input1 => matrix from populateMatrix.asm
+    input2 => "ATTACK AT DAWN"
+    input3 => "LEMON"
+- Process:
+    A - L -> L
+    T - E -> X
+    T - M -> F
+    A - O -> O
+    C - N -> P
+    K - L -> V
+    A - E -> E
+    T - M -> F
+    D - O -> R
+    A - N -> N
+    W - L -> H
+    N - E -> R
+- Result: LXFOPVEFRNHR
+
+## Example Method call in C:
+    char* output = encryptString(matrix, input1, input2);
+    printf("%s\n", output); // output: LXFOPVEFRNHR
+
+/********************************************************************************/
+/************************ DEMO: IMPLEMENTATION IN CPP **************************/
+/********************************************************************************/
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+// This will be replaced by your actual function in encryptChar.asm, It is just here to return random stuff.
+char encryptChar(char** matrix, char char1, char char2) {
+    return char1;
+}
+
+char* encryptString(char** matrix, char* string1, char* string2) {
+    int len1 = strlen(string1);
+    int len2 = strlen(string2);
+    char* encrypted = new char[len1 + 1];
+    int j = 0;
+    for (int i = 0; i < len1; i++) {
+        while (string1[i] == ' ') {
+            // encrypted[i] = '#'; Skipping
+            i = i + 1;
+        }
+        encrypted[i] = encryptChar(matrix, string1[i], string2[j]);
+        j = (j + 1) % len2;
+    }
+    encrypted[len1] = '\0';
+    return encrypted;
+}
+
+int main() {
+    char* matrix[256];
+    char input1[] = "ATTACK AT DAWN";
+    char input2[] = "LEMON";
+
+    char* output = encryptString(matrix, input1, input2);
+    printf("%s\n", output);  // Output: LXFOPVEFRNHR
+
+    delete[] output;  // Don't forget to free the allocated memory
+    return 0;
+}
