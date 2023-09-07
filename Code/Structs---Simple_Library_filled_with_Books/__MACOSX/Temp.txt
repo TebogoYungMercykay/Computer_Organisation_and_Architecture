@@ -1,0 +1,1 @@
+The _MACOSX directory is used by OS X (now called MacOS) to provide some extra information about the files and folders.
