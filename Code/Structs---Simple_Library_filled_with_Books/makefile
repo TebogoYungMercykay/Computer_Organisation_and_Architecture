@@ -32,5 +32,10 @@ debug: $(EXECUTABLE)
 
 clean:
 	rm -f $(ASM_OBJECTS) $(C_TEST_OBJECTS) $(EXECUTABLE)
+	clear
+	reset
 
 fresh: clean all
+
+tar:
+	tar -cvz *.asm -f Code.tar.gz
