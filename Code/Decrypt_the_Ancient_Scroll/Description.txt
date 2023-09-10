@@ -1,1 +1,28 @@
-Quest Brief: Decrypt the Ancient Scroll
+# Quest Brief: Decrypt the Ancient Scroll
+For this quest, you are tasked with mastering the ancient Vigenere cipher. This will allow you to send encrypted messages to allies and decipher the secrets of old. To guide you, consult the tome of knowledge:https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher.Remember, in this cipher, spaces vanish like mist, so ”HELLO WORLD” becomes ”HELLOWORLD” before you cast your encryption spell. Assume your incantations will always be in uppercase runes without any mystical symbols.
+- Challenge 1: Conjure the Matrix
+    - For this challenge, you must craft an assembly spell named char** populateMatrix() that will conjure a 26x26 matrix of runes.
+    - Each row of this matrix will have the alphabet shifted left based on the row’s mystical index (i.e., row 0 remains unchanged, row 1 shifts left by 1, row 2 shifts left by 2, and so on).
+    - The spell must return a pointer to this matrix.  Your matrix would look something like if implemented correctly:
+- Challenge 2: Rune Transformation
+    - For this challenge, you must craft an assembly spell named char encryptChar(char**,char, char).
+    - This spell will take a char**(the matrix from challenge 1) and two chars, transforming  the  first char using  the  matrix  and  the  key  rune  provided  as  the  second char as described in the cipher’s ancient scrolls.
+    - The spell must return the transformed rune.
+        - Example:  (This is not a prophecy, merely an example)
+            - Given the rune: A
+            - Given the key rune: L
+            - The spell should produce: L
+        - The Operation happening should look something like this:
+            - B - Z -> A
+            - Z - Z -> Y
+            - A - L -> L
+            - O - P -> D
+- Challenge 3: Encrypt the Message
+    - For this challenge, you must craft an assembly spell named char* encryptString(char**,char*, char*).
+    - This spell will take the matrix from populateMatrix(), and two strings of runes (the message and the keyword).
+    - Using the corresponding runes from both strings, it will repeatedly invoke the spell from challenge 2 to encrypt the entire message.
+    - The spell must then return the fully encrypted message.
+        - Example:
+            - Given the message: ATTACK AT DAWN
+            - Using the keyword: LEMON
+            - The spell should produce: LXFOPVEFRNHR
