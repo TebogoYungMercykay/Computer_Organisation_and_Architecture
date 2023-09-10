@@ -31,7 +31,7 @@ debug: $(EXECUTABLE)
 	gdb $(EXECUTABLE)
 
 clean:
-	rm -f $(ASM_OBJECTS) $(C_TEST_OBJECTS) $(EXECUTABLE)
+	rm -f $(ASM_OBJECTS) $(C_TEST_OBJECTS) $(EXECUTABLE) *.tar.gz
 	clear
 	reset
 
