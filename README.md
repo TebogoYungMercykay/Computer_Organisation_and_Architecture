@@ -4,6 +4,8 @@
 
 Welcome to the **Computer Organisation and Architecture** repository! This repository contains a collection of NASM Assembly code examples and projects related to computer organization and architecture.
 
+<img src="./Images/Assembly_Random.png" alt="Assembly Language" width="100%" height="400">
+
 ---
 
 # `Getting Started`
